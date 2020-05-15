@@ -1,0 +1,29 @@
+function doIt (start, end){
+    let max = 0
+    let arr = []
+    for (let i = start; i < end; i++){
+        let check = checkSize(i)
+        if (check > max){
+            max = check
+            arr.push(i)
+        } 
+    }
+    return arr [arr.length-1]
+}
+
+console.log(doIt(0,1000000))
+
+function checkSize (num) {
+    let hold = num  
+    let count = 1
+    while(hold>1){
+        if (hold % 2 == 0) {
+            hold = hold/2
+            count++
+        } else {
+            hold = 3*hold + 1
+            count++
+        }
+    }
+    return count 
+}
